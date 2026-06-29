@@ -53,26 +53,11 @@ function WaitlistForm({ onSuccess }: WaitlistFormProps) {
 
     setError(null)
     setLoading(true)
-
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim() }),
-      })
-
-      if (!res.ok) {
-        const json = await res.json().catch(() => ({}))
-        setError((json as { error?: string }).error ?? CLOSING_CTA.error.generic)
-        return
-      }
-
-      onSuccess()
-    } catch {
-      setError(CLOSING_CTA.error.generic)
-    } finally {
+    // TODO: wire up Supabase submission
+    setTimeout(() => {
       setLoading(false)
-    }
+      onSuccess()
+    }, 600)
   }
 
   return (
