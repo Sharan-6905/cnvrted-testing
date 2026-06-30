@@ -51,7 +51,7 @@ export function Footer() {
             top: '10%',
             transform: 'translateX(-50%)',
             color: 'transparent',
-            WebkitTextStroke: '1.5px rgba(0,0,0,0.12)',
+            WebkitTextStroke: '2px rgba(0,0,0,0.25)',
           }}
         >
           {NAV.brand}
