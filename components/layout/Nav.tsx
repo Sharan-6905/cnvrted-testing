@@ -150,7 +150,9 @@ export function Nav() {
 
             {/* Join our Slack — desktop only */}
             <a
-              href="#"
+              href="https://join.slack.com/t/cnvrted/shared_invite/zt-4095523xy-~cLpdY4E3fhQ4_cKvUo8Ug"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:flex items-center gap-2 text-body text-text-secondary hover:text-text-primary transition-colors duration-[110ms] border border-border rounded-full px-4 py-1.5 hover:border-text-secondary"
             >
               {/* Slack icon (inline, 4-color) */}
