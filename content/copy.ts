@@ -45,6 +45,7 @@ export const NAV = {
     { label: "Why CNVRTED", href: "/why-cnvrted" },
     { label: "How it works", href: "/how-it-works" },
     { label: "Pricing", href: "/pricing" },
+    { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
   login: { label: "Log in", href: "/login" },
   cta: {
