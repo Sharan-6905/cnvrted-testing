@@ -26,8 +26,8 @@ function IntentCard({ card, index }: { card: IntentCardCopy; index: number }) {
         <span className="text-caption text-text-tertiary">{card.timestamp}</span>
       </div>
 
-      {/* Company name */}
-      <h3 className="text-h3 font-semibold text-text-primary">{card.company}</h3>
+      {/* Company name — blurred for privacy */}
+      <h3 className="text-h3 font-semibold text-text-primary select-none" style={{ filter: 'blur(6px)' }}>{card.company}</h3>
 
       {/* Description */}
       <p className="text-body text-text-secondary flex-1">{card.description}</p>
