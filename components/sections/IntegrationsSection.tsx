@@ -175,7 +175,7 @@ export function IntegrationsSection() {
             {INTEGRATIONS.tools.map((tool) => (
               <div
                 key={tool.slug}
-                className="flex items-center gap-2.5 opacity-60 hover:opacity-100 transition-opacity"
+                className="flex items-center gap-2.5 opacity-100 transition-opacity"
                 title={tool.name}
               >
                 {tool.slug === 'salesforce' ? (
