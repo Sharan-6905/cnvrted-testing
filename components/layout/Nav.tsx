@@ -39,12 +39,14 @@ import { AnimatePresence } from 'framer-motion'
 import { Container } from '@/components/layout/Container'
 import { Button } from '@/components/ui/Button'
 import { MobileMenu } from '@/components/layout/MobileMenu'
+import { BetaModal } from '@/components/ui/BetaModal'
 import { useNavScrolled } from '@/lib/hooks/useNavScrolled'
 import { NAV, UI } from '@/content/copy'
 
 export function Nav() {
   const scrolled = useNavScrolled('hero-headline')
   const [menuOpen, setMenuOpen] = useState(false)
+  const [betaOpen, setBetaOpen] = useState(false)
   const [visible, setVisible] = useState(true)
   const lastScrollY = useRef(0)
 
@@ -148,6 +150,15 @@ export function Nav() {
           {/* ── Right side: Join our Slack + hamburger ───────────────────── */}
           <div className="flex items-center gap-lg">
 
+            {/* Join beta — desktop only */}
+            <button
+              onClick={() => setBetaOpen(true)}
+              className="hidden md:flex items-center gap-2 text-body font-medium text-white rounded-full px-4 py-1.5 transition-opacity duration-[110ms] hover:opacity-90"
+              style={{ backgroundColor: '#0B6B66' }}
+            >
+              Join our beta
+            </button>
+
             {/* Join our Slack — desktop only */}
             <a
               href="https://join.slack.com/t/cnvrted/shared_invite/zt-4095523xy-~cLpdY4E3fhQ4_cKvUo8Ug"
@@ -223,6 +234,8 @@ export function Nav() {
           />
         )}
       </AnimatePresence>
+
+      <BetaModal open={betaOpen} onClose={() => setBetaOpen(false)} />
     </>
   )
 }

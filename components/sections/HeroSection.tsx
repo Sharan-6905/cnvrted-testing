@@ -53,11 +53,26 @@ function WaitlistForm({ onSuccess }: WaitlistFormProps) {
 
     setError(null)
     setLoading(true)
-    // TODO: wire up Supabase submission
-    setTimeout(() => {
-      setLoading(false)
+    try {
+      const { supabase } = await import('@/lib/supabase')
+      const { error: dbError } = await supabase
+        .from('waitlist')
+        .insert({ email: email.trim() })
+      if (dbError) {
+        if (dbError.code === '23505') {
+          setError("You're already on the list!")
+        } else {
+          setError(CLOSING_CTA.error.generic)
+        }
+        setLoading(false)
+        return
+      }
       onSuccess()
-    }, 600)
+    } catch {
+      setError(CLOSING_CTA.error.generic)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
