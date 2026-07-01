@@ -42,7 +42,7 @@ export const NAV = {
   brand: "CNVRTED",
   links: [
     { label: "Product", href: "#signal-examples" },
-    { label: "Why CNVRTED", href: "#why-not-a-database" },
+    { label: "Why CNVRTED", href: "/why-cnvrted" },
     { label: "How it works", href: "#how-it-works" },
     { label: "Pricing", href: "#pricing" },
   ] satisfies NavLink[],
