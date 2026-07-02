@@ -139,15 +139,6 @@ export function MobileMenu({ id, onClose }: MobileMenuProps) {
           transition={{ delay: NAV.links.length * 0.06 + 0.04 }}
           className="flex flex-col items-center gap-3 mt-lg"
         >
-          {/* Early access */}
-          <button
-            onClick={onClose}
-            className="flex items-center justify-center px-6 py-3 rounded-full text-body font-semibold text-white w-full"
-            style={{ backgroundColor: '#0B6B66' }}
-          >
-            Early access
-          </button>
-
           {/* Join our Slack */}
           <a
             href="https://join.slack.com/t/cnvrted/shared_invite/zt-4095523xy-~cLpdY4E3fhQ4_cKvUo8Ug"
