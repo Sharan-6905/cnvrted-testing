@@ -53,12 +53,18 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
     setError(null)
     setLoading(true)
     try {
-      const { supabase } = await import('@/lib/supabase')
-      const { error: dbError } = await supabase
-        .from('beta_signups')
-        .insert({ name: name.trim(), email: email.trim(), phone: phone.trim() || null })
-      if (dbError) {
-        setError(dbError.code === '23505' ? "You're already signed up!" : 'Something went wrong. Please try again.')
+      const res = await fetch('/api/beta', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim() || null }),
+      })
+      if (res.status === 409) {
+        setError("You're already signed up!")
+        setLoading(false)
+        return
+      }
+      if (!res.ok) {
+        setError('Something went wrong. Please try again.')
         setLoading(false)
         return
       }
