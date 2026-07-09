@@ -53,6 +53,14 @@ export default function RootLayout({
       lang="en"
       className={`${sans.variable} ${mono.variable}`}
     >
+      <head>
+        <meta property="og:image" content="https://www.cnvrted.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.cnvrted.com/og-image.jpg" />
+      </head>
       <body className="min-h-screen antialiased">
         {/* Skip-to-content — first focusable element in the tab order.
             Visible only on keyboard focus (CSS: .skip-link in globals.css).
