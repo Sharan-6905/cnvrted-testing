@@ -21,22 +21,22 @@ export const metadata: Metadata = {
     description: META.ogDescription,
     images: [
       {
-        url: 'https://www.cnvrted.com/og-image.jpg',
+        url: 'https://register.cnvrted.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: META.ogImageAlt,
       },
     ],
     type: 'website',
-    url: 'https://www.cnvrted.com',
+    url: 'https://register.cnvrted.com',
   },
   twitter: {
     card: 'summary_large_image',
     title: META.ogTitle,
     description: META.ogDescription,
-    images: ['https://www.cnvrted.com/og-image.jpg'],
+    images: ['https://register.cnvrted.com/og-image.jpg'],
   },
-  metadataBase: new URL('https://www.cnvrted.com'),
+  metadataBase: new URL('https://register.cnvrted.com'),
   robots: {
     index: true,
     follow: true,
@@ -54,12 +54,12 @@ export default function RootLayout({
       className={`${sans.variable} ${mono.variable}`}
     >
       <head>
-        <meta property="og:image" content="https://www.cnvrted.com/og-image.jpg" />
+        <meta property="og:image" content="https://register.cnvrted.com/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://www.cnvrted.com/og-image.jpg" />
+        <meta name="twitter:image" content="https://register.cnvrted.com/og-image.jpg" />
       </head>
       <body className="min-h-screen antialiased">
         {/* Skip-to-content — first focusable element in the tab order.
