@@ -40,12 +40,7 @@ export interface HowItWorksStep {
 
 export const NAV = {
   brand: "CNVRTED",
-  links: [
-    { label: "Product", href: "/product" },
-    { label: "Why us", href: "/why-cnvrted" },
-    { label: "How it works", href: "/how-it-works" },
-    { label: "Pricing", href: "/pricing" },
-  ] satisfies NavLink[],
+  links: [] as NavLink[],
   login: { label: "Log in", href: "/login" },
   cta: {
     label: "Join the waitlist",
