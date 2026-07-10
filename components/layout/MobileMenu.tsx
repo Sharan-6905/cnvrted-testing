@@ -28,7 +28,6 @@
 
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/Button'
 import { mobileMenuOverlay, fadeInUp } from '@/lib/motion'
 import { NAV } from '@/content/copy'
 
