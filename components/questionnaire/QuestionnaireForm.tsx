@@ -130,7 +130,11 @@ export function QuestionnaireForm() {
         }),
       })
       if (!res.ok) {
-        setError('Something went wrong. Please try again.')
+        // Surface the API's specific reason (e.g. "This email address
+        // doesn't appear to exist") instead of a generic fallback — only
+        // fall back if the response body isn't the JSON shape we expect.
+        const data = await res.json().catch(() => null)
+        setError(data?.error || 'Something went wrong. Please try again.')
         setLoading(false)
         return
       }

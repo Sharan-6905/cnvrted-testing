@@ -49,11 +49,11 @@ export function validateEmailFormat(rawEmail: string): { valid: boolean; reason?
   const [localPart, domain] = email.split('@')
 
   if (DISPOSABLE_DOMAINS.has(domain)) {
-    return { valid: false, reason: 'Please use a real, non-disposable email address.' }
+    return { valid: false, reason: 'Enter a valid email address.' }
   }
 
   if (isGibberish(localPart)) {
-    return { valid: false, reason: 'That doesn\'t look like a real email address — please double-check it.' }
+    return { valid: false, reason: 'Enter a valid email address.' }
   }
 
   return { valid: true }
@@ -102,11 +102,11 @@ export async function verifyEmailDeliverability(
     const data = (await res.json()) as AbstractApiResponse
 
     if (data.email_quality?.is_disposable) {
-      return { valid: false, reason: 'Please use a real, non-disposable email address.' }
+      return { valid: false, reason: 'Enter a valid email address.' }
     }
 
     if (data.email_deliverability?.status === 'undeliverable') {
-      return { valid: false, reason: 'This email address doesn\'t appear to exist — please double-check it.' }
+      return { valid: false, reason: 'Enter a valid email address.' }
     }
 
     // status === 'unknown' or 'deliverable' — accept both. 'unknown' usually
