@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabase } from '@/lib/supabase'
 import { validateEmailFormat, verifyEmailDeliverability } from '@/lib/emailValidation'
+import { sendQuestionnaireConfirmation } from '@/lib/email'
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
@@ -53,6 +54,15 @@ export async function POST(req: NextRequest) {
 
   if (error) {
     return NextResponse.json({ error: 'Database error' }, { status: 500 })
+  }
+
+  // Best-effort — the submission already succeeded (it's in the database),
+  // so a failed confirmation email should not turn this into an error
+  // response. Log and move on.
+  try {
+    await sendQuestionnaireConfirmation(email.trim(), name.trim())
+  } catch (err) {
+    console.error('Failed to send confirmation email:', err)
   }
 
   return NextResponse.json({ success: true })
