@@ -6,7 +6,7 @@ import { Container } from '@/components/layout/Container'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { Button } from '@/components/ui/Button'
 import { HeroEntrance, HeroItem } from '@/components/motion/HeroEntrance'
-import { HeroVisual } from '@/components/sections/HeroVisual'
+import { LiveSignalPipeline } from '@/components/sections/LiveSignalPipeline'
 import { HERO, CLOSING_CTA } from '@/content/copy'
 import { HERO_DELAYS, DURATION, EASE } from '@/lib/tokens'
 import { formSuccess } from '@/lib/motion'
@@ -256,7 +256,7 @@ export function HeroSection({ forceSuccess = false }: HeroSectionProps) {
             fadeOnly
             className="hidden lg:block w-full"
           >
-            <HeroVisual />
+            <LiveSignalPipeline />
           </HeroItem>
         </div>
       </Container>
